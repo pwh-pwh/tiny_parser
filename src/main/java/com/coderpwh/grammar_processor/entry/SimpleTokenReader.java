@@ -11,10 +11,19 @@ public class SimpleTokenReader implements TokenReader {
     public SimpleTokenReader(List<Token> tokens) {
         this.tokens = tokens;
     }
-
+//过滤掉注释
     @Override
     public Token read() {
         if (pos < tokens.size()) {
+            int t = pos;
+            if (tokens.get(t).getType() == TokenType.ZSe) {
+                if (t+1<tokens.size()){
+                    pos++;
+                    return tokens.get(pos++);
+                }else {
+                    return null;
+                }
+            }
             return tokens.get(pos++);
         }
         return null;

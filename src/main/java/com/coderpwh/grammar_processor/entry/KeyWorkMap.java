@@ -25,5 +25,11 @@ public class KeyWorkMap {
         map.put("not",TokenType.Not);
         map.put("repeat",TokenType.Repeat);
         map.put("until",TokenType.Until);
+        map.put("for",TokenType.For);
+        map.put("then",TokenType.Then);
+        map.put("end",TokenType.End);
+        map.put("enddo",TokenType.EndDo);
+        map.put("to",TokenType.To);
+        map.put("downto",TokenType.Downto);
     }
 }

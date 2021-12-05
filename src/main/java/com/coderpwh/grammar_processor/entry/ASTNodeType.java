@@ -15,6 +15,25 @@ public enum ASTNodeType{
     Additive,           //加法表达式
 
     Identifier,         //标识符
-    IntLiteral          //整型字面量
+    IntLiteral,          //整型字面量
+    Stmt_sequence,
+    Statement,
+    If_stmt,
+    Repeat_stmt,
+    Assign_stmt,
+    Read_stmt,
+    Write_stem,
+    Dowhile_stem,
+    For_stmt,
+    Exp,
+    Simple_exp,
+    Comparison_op,
+    Addop,
+    Term,
+    Mulop,
+    Factor,
+    ExpS,
+    Str
+
 }
 

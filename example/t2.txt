@@ -1,0 +1,1 @@
+read x; read y; if x>0 and y>10 then x = x + y end; repeat write aaa; until x+y>=20;

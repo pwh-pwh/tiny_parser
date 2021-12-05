@@ -1,3 +1,12 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:5.0.0'
+    }
+}
+
 plugins {
     id 'java'
     id 'application'
@@ -16,9 +25,16 @@ ext {
     junitVersion = '5.7.1'
 }
 
+apply plugin: 'com.github.johnrengelman.shadow'
+
 sourceCompatibility = '11'
 targetCompatibility = '11'
-
+mainClassName = 'com.coderpwh.grammar_processor.Main'
+shadowJar {
+    baseName = 'jarName'
+    classifier = null
+    version = '1.1.0'
+}
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }

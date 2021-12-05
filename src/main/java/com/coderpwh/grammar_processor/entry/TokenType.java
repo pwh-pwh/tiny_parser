@@ -23,6 +23,7 @@ public enum TokenType{
     OUT,
     NQ,     //<>
     JE,    //-=
+    AE,
     SemiColon, // ;
     LeftParen, // (
     RightParen,// )
@@ -62,6 +63,9 @@ public enum TokenType{
     SignedNum,
     Then, //then
     End,
-    Until   //until
-
+    Until,   //until
+    For,
+    EndDo,
+    To,
+    Downto
 }

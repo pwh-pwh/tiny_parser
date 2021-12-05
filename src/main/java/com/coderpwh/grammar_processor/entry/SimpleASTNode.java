@@ -17,6 +17,10 @@ public class SimpleASTNode implements ASTNode{
         this.text = text;
     }
 
+    public void setText(String text) {
+        this.text = text;
+    }
+
     @Override
     public ASTNode getParent() {
         return parent;

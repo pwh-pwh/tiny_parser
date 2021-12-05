@@ -22,7 +22,7 @@ public class SimpleLexer {
     public static void main(String args[]) {
         SimpleLexer lexer = new SimpleLexer();
 
-        String script = "int a = 10;;";
+        String script = "\"afe\"";
         System.out.println("parse :" + script);
         SimpleTokenReader tokenReader = lexer.tokenize(script);
         dump(tokenReader);
@@ -181,6 +181,24 @@ public class SimpleLexer {
                             state = initToken(ch);
                         }
                         break;
+                    case Plus:
+                        if (ch == '=') {
+                            token.setType(TokenType.AE);
+                            state = DfaState.AE;
+                            tokenText.append(ch);
+                        }else {
+                            state = initToken(ch);
+                        }
+                        break;
+                    case Minus:
+                        if (ch == '=') {
+                            token.setType(TokenType.JE);
+                            state = DfaState.JE;
+                            tokenText.append(ch);
+                        }else {
+                            state = initToken(ch);
+                        }
+                        break;
                     case LT:
                         if(ch == '=') {
                             token.setType(TokenType.LE);
@@ -195,8 +213,8 @@ public class SimpleLexer {
                             state = DfaState.KU;
                             tokenText.append(ch);
                         } else if(ch == '>') {
-                            token.setType(TokenType.Not);
-                            state = DfaState.Not;
+                            token.setType(TokenType.NQ);
+                            state = DfaState.NQ;
                             tokenText.append(ch);
                         }
                         else {
@@ -285,13 +303,6 @@ public class SimpleLexer {
                             state = DfaState.Initial;
                         }
                         break;
-
-                    case Plus:
-                            state = initToken(ch);
-                        break;
-                    case Minus:
-                            state = initToken(ch);
-                        break;
                     case GE:
                     case LE:
                     case EQ:
@@ -303,15 +314,18 @@ public class SimpleLexer {
                     case Include:
                     case QY:
                     case CF:
+                    case AE:
                     case And:
                     case Or:
                     case Do:
+                    case NQ:
                     case Until:
                     case Not:
                     case WRITE:
                     case READ:
                     case End:
                     case ZSe:
+                    case JE:
                     case Jing:
                     case StringLiteral:
                     case MULCM:
